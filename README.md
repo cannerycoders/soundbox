@@ -1,11 +1,10 @@
 # soundbox
 
 cannerycoders.github.io is yet another repository for 
-open-source sound files.  Here, we're cobbling-together 
-samples from a variety of open-source sample-collection 
-in order to make available for live-loading into internet 
-sound apps like [HzWeb](https://cannerycoders.com/HzWeb)
-from github.io.
+open-source sound files.  Here, we've cobbled together 
+samples from a variety of open-source sample collections
+in order to make them available for live-loading via github.io
+into internet sound apps like [HzWeb](https://cannerycoders.com/HzWeb).
 
 We follow the introspection conventions laid out by 
 [smpldsnds](https://github.com/smpldsnds/drum-machines): 
@@ -14,7 +13,36 @@ We follow the introspection conventions laid out by
    for each "instrument".
 2. within an instrument directory, the file, `instrument.json` 
    describes its contents including an enumeration of 
-   sample file names and available formats.
+   sample file names and available formats. Here's an
+   example:
+
+```json
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/CasioSa10",
+  "samples": [
+    "Crash",
+    "HighConga",
+    "HighCowBell",
+    "HighTom",
+    "Kick",
+    "LowConga",
+    "LowCowBell",
+    "LowTom",
+    "MiddleTom",
+    "OpenHat",
+    "Ride",
+    "SnareA",
+    "SnareB"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}
+```
+
 
 ## issues
 
