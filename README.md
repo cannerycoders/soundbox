@@ -1,9 +1,10 @@
 # soundbox
 
 cannerycoders.github.io is yet another repository for 
-open-source sound files.  This one is a cobbling-together 
-from a variety of sources that are available for live-loading 
-into internet sound apps like [HzWeb](https://cannerycoders.com/HzWeb)
+open-source sound files.  Here, we're cobbling-together 
+samples from a variety of open-source sample-collection 
+in order to make available for live-loading into internet 
+sound apps like [HzWeb](https://cannerycoders.com/HzWeb)
 from github.io.
 
 We follow the introspection conventions laid out by 
