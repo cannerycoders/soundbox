@@ -1,0 +1,35 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/RolandTr808",
+  "samples": [
+    "Clap",
+    "Claves",
+    "ClosedHat",
+    "CowBell",
+    "Crash",
+    "HighConga",
+    "HighTom",
+    "KickA",
+    "KickB",
+    "KickC",
+    "KickD",
+    "KickE",
+    "LowConga",
+    "LowTom",
+    "Maracas",
+    "MiddleConga",
+    "MiddleTom",
+    "OpenHat",
+    "Rim",
+    "SnareA",
+    "SnareB",
+    "SnareC",
+    "SnareD",
+    "SnareE"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

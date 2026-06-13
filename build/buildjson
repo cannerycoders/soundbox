@@ -1,0 +1,114 @@
+#!/usr/bin/env node
+import { readdir, writeFile } from "node:fs/promises";
+import { spawn } from "node:child_process";
+import path from "node:path";
+
+const rootURL = "https://cannerycoders.github.io/soundbox";
+const instdirs = {};
+
+const entries = await readdir("../instruments", {
+  recursive: true,
+  withFileTypes: true
+});
+
+function getInstrumentRoot(path)
+{
+  // TR-808 drum-machines TR-808 is hierarchical. 
+  // How do we assess?
+  return path;
+}
+
+function getSubfileRef(root, sdir, sfile)
+{
+  if(root == sdir)
+    return sfile;
+  console.assert(0, "implement me!");
+}
+
+function probeOgg(file)
+{
+  return new Promise((resolve, reject) =>
+  {
+    const args = [
+      "-v", "error",
+      "-select_streams", "a:0",
+      "-show_entries", "stream=sample_rate,channels,codec_name",
+      "-of", "json",
+      file
+    ];
+
+    const p = spawn("ffprobe", args);
+
+    let out = "";
+    let err = "";
+
+    p.stdout.on("data", d => out += d);
+    p.stderr.on("data", d => err += d);
+
+    p.on("close", code =>
+    {
+      if (code !== 0)
+        return reject(new Error(err));
+
+      const json = JSON.parse(out);
+      const stream = json.streams?.[0];
+
+      resolve({
+        codec: stream?.codec_name,
+        sampleRate: Number(stream?.sample_rate),
+        channels: stream?.channels
+      });
+    });
+  });
+}
+
+const noteRegex = /^([a-g])([#b]?)(-1|0|1|2|3|4|5|6|7|8)(?=\.|_|-|$)/i;
+for (const e of entries)
+{
+  if (e.isFile() && e.name.endsWith(".ogg"))
+  {
+    let fpath = path.join(e.parentPath, e.name);
+    let iroot = getInstrumentRoot(e.parentPath);
+    let itoc = instdirs[iroot] ;
+    if(itoc === undefined)
+    {
+      let tonal = e.name.match(noteRegex);
+      const finfo = await probeOgg(fpath);
+
+      itoc = {
+        baseUrl: `${rootURL}/${iroot.slice(3)}`, // "../"
+        samples: [],
+        formats: ["ogg"],
+        soundClass: tonal ? "tonal" : "sound",
+        sampleRate: finfo.sampleRate,
+        channels: finfo.channels
+      };
+      // potenial add'l meta-data
+      //   C4_vel127
+      //   C4_rr1 (variants in round-robin)
+      //   - sustain region within file (measured in time)
+      //  channels, samplerate
+      instdirs[iroot] = itoc;
+    }
+    let sf = getSubfileRef(iroot, e.parentPath, e.name);
+    itoc.samples.push(path.parse(sf).name);
+  }
+}
+
+const instfile = "../instruments.json";
+let instruments = [];
+for(let dir of Object.keys(instdirs))
+{
+  instruments.push(dir.slice(3));
+}
+
+await writeFile(instfile, JSON.stringify(instruments, null, 2));
+console.log(`wrote ${instfile}`);
+
+for(let [k,v] of Object.entries(instdirs))
+{
+  const tocpath = path.join(k, "instrument.json");
+  await writeFile(tocpath, JSON.stringify(v, null, 2));
+  console.log(`wrote ${tocpath}`);
+}
+

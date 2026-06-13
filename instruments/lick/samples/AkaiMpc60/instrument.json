@@ -1,0 +1,23 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/AkaiMpc60",
+  "samples": [
+    "ClosedHat",
+    "Conga",
+    "Crash",
+    "HighTom",
+    "Kick",
+    "LowTomA",
+    "LowTomB",
+    "MiddleTom",
+    "OpenHat",
+    "Ride",
+    "Rim",
+    "Snare"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

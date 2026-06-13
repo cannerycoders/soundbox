@@ -1,0 +1,18 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/BossDr110",
+  "samples": [
+    "Clap",
+    "ClosedHat",
+    "Crash",
+    "Kick",
+    "OpenHat",
+    "PedalHat",
+    "Snare"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

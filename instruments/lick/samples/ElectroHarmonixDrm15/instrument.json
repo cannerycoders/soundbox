@@ -1,0 +1,22 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/ElectroHarmonixDrm15",
+  "samples": [
+    "Clap",
+    "ClosedHatA",
+    "ClosedHatB",
+    "HighTom",
+    "KickA",
+    "KickB",
+    "LowTom",
+    "OpenHat",
+    "Rim",
+    "SnareA",
+    "SnareB"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 2
+}

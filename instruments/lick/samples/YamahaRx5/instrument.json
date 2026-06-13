@@ -1,0 +1,25 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/YamahaRx5",
+  "samples": [
+    "Clap",
+    "ClosedHatA",
+    "ClosedHatB",
+    "CrashA",
+    "CrashB",
+    "Kick",
+    "OpenHat",
+    "RideA",
+    "RideB",
+    "SnareA",
+    "SnareB",
+    "SnareC",
+    "SnareD",
+    "SnareE"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

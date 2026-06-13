@@ -1,0 +1,26 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/RolandTr707",
+  "samples": [
+    "Clap",
+    "ClosedHatA",
+    "ClosedHatB",
+    "Cowbell",
+    "Crash",
+    "HighTom",
+    "KickA",
+    "KickB",
+    "LowTom",
+    "MiddleTom",
+    "OpenHat",
+    "Ride",
+    "Rim",
+    "SnareA",
+    "SnareB"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

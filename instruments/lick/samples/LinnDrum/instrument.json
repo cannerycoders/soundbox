@@ -1,0 +1,26 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/LinnDrum",
+  "samples": [
+    "Clap",
+    "ClosedHatA",
+    "ClosedHatB",
+    "Crash",
+    "HighTom",
+    "KickA",
+    "KickB",
+    "LowTom",
+    "MediumTom",
+    "OpenHat",
+    "RideA",
+    "RideB",
+    "SnareA",
+    "SnareB",
+    "SnareC"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

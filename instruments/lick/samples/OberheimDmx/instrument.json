@@ -1,0 +1,26 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/OberheimDmx",
+  "samples": [
+    "Clap",
+    "ClosedHat",
+    "Crash",
+    "HighTom",
+    "KickA",
+    "KickB",
+    "KickC",
+    "LowTom",
+    "MiddleTom",
+    "OpenHat",
+    "Ride",
+    "Rim",
+    "Shaker",
+    "Snare",
+    "Tamborine"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

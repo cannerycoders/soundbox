@@ -1,0 +1,32 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/RolandTr66",
+  "samples": [
+    "ClosedHat1",
+    "ClosedHat2",
+    "ClosedHat3",
+    "ClosedHat4",
+    "Crash",
+    "HighConga",
+    "KickA1",
+    "KickA2",
+    "KickA3",
+    "KickA4",
+    "KickB1",
+    "KickB2",
+    "KickB3",
+    "KickB4",
+    "LowConga",
+    "OpenHat1",
+    "OpenHat2",
+    "Rim",
+    "Snare1",
+    "Snare2",
+    "Snare3"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

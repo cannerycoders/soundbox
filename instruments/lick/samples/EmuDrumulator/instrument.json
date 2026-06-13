@@ -1,0 +1,23 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/EmuDrumulator",
+  "samples": [
+    "Clap",
+    "Clave",
+    "ClosedHat",
+    "CowBell",
+    "Crash",
+    "HighTom",
+    "Kick",
+    "LowTom",
+    "MiddleTom",
+    "OpenHat",
+    "Rim",
+    "Snare"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

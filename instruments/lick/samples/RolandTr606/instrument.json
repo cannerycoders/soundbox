@@ -1,0 +1,19 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/RolandTr606",
+  "samples": [
+    "ClosedHat",
+    "Crash",
+    "HighTom",
+    "Kick",
+    "LowTom",
+    "MiddleTom",
+    "OpenHat",
+    "Snare"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

@@ -1,0 +1,193 @@
+#!/usr/bin/env node
+
+import { opendir, stat } from "node:fs/promises";
+import { spawn } from "node:child_process";
+import path from "node:path";
+
+////////////////////////////////////////////////////////////////////////////////
+// Semaphore
+////////////////////////////////////////////////////////////////////////////////
+
+class Semaphore
+{
+  constructor(max)
+  {
+    this.max = max;
+    this.running = 0;
+    this.waiters = [];
+  }
+
+  async acquire()
+  {
+    if (this.running < this.max)
+    {
+      this.running++;
+      return;
+    }
+
+    await new Promise(resolve => this.waiters.push(resolve));
+    this.running++;
+  }
+
+  release()
+  {
+    this.running--;
+
+    if (this.waiters.length > 0)
+    {
+      const resolve = this.waiters.shift();
+      resolve();
+    }
+  }
+
+  async run(fn)
+  {
+    await this.acquire();
+
+    try
+    {
+      return await fn();
+    }
+    finally
+    {
+      this.release();
+    }
+  }
+}
+
+async function needsConversion(src, dst)
+{
+  let srcStat;
+
+  try
+  {
+    srcStat = await stat(src);
+  }
+  catch
+  {
+    throw new Error(`Source file not found: ${src}`);
+  }
+
+  try
+  {
+    const dstStat = await stat(dst);
+
+    // Convert only if source is newer.
+    return srcStat.mtimeMs > dstStat.mtimeMs;
+  }
+  catch
+  {
+    // Destination doesn't exist.
+    return true;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Directory walker
+////////////////////////////////////////////////////////////////////////////////
+
+async function* walk(dir)
+{
+  const dh = await opendir(dir);
+
+  for await (const entry of dh)
+  {
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory())
+      yield* walk(fullPath);
+    else
+      yield fullPath;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// ffmpeg wrapper
+////////////////////////////////////////////////////////////////////////////////
+
+function convertWavToOgg(src, dst)
+{
+  return new Promise((resolve, reject) =>
+  {
+    const proc = spawn(
+      "ffmpeg",
+      [
+        "-y",
+        "-i", src,
+        "-c:a", "libopus", // vs libvorbus
+        "-b:a", "192k", //  ~ -q:a libvorbus: 6
+        "-loglevel", "warning",
+        "-hide_banner",
+        dst
+      ],
+      {
+        stdio: "inherit"
+      }
+    );
+
+    proc.on("error", reject);
+
+    proc.on("exit", code =>
+    {
+      if (code === 0)
+        resolve();
+      else
+        reject(new Error(`ffmpeg exited with code ${code}`));
+    });
+  });
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Main
+////////////////////////////////////////////////////////////////////////////////
+
+async function main(rootDir, maxConcurrent = 4, force=false)
+{
+  const sem = new Semaphore(maxConcurrent);
+  const jobs = [];
+
+  for await (const file of walk(rootDir))
+  {
+    if (path.extname(file).toLowerCase() !== ".wav")
+      continue;
+
+    const oggFile =
+      path.join(
+        path.dirname(file),
+        path.basename(file, ".wav") + ".ogg"
+      );
+
+    if (!force && !(await needsConversion(file, oggFile)))
+    {
+      console.log(`Up-to-date: ${oggFile}`);
+      continue;
+    }
+
+    jobs.push(
+      sem.run(async () =>
+      {
+        console.log(`Converting ${file}`);
+
+        await convertWavToOgg(file, oggFile);
+
+        console.log(`Finished ${oggFile}`);
+      })
+    );
+  }
+
+  await Promise.all(jobs);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+const rootDir = process.argv[2] ?? "../instruments";
+const maxConcurrent = Number(process.argv[3] ?? 6);
+const force = false;
+
+main(rootDir, maxConcurrent, force)
+  .then(() => console.log("Done"))
+  .catch(err =>
+  {
+    console.error(err);
+    process.exit(1);
+  });

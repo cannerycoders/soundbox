@@ -1,0 +1,24 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/CasioSa10",
+  "samples": [
+    "Crash",
+    "HighConga",
+    "HighCowBell",
+    "HighTom",
+    "Kick",
+    "LowConga",
+    "LowCowBell",
+    "LowTom",
+    "MiddleTom",
+    "OpenHat",
+    "Ride",
+    "SnareA",
+    "SnareB"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

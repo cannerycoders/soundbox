@@ -1,0 +1,28 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/RolandTr909",
+  "samples": [
+    "Clap",
+    "ClosedHatA",
+    "ClosedHatB",
+    "Crash",
+    "HighTomA",
+    "HighTomB",
+    "KickA",
+    "KickB",
+    "LowTomA",
+    "LowTomB",
+    "MiddleTomA",
+    "MiddleTomB",
+    "OpenHat",
+    "Ride",
+    "Rim",
+    "SnareA",
+    "SnareB"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}

@@ -1,0 +1,25 @@
+{
+  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/RolandCr78",
+  "samples": [
+    "Claves",
+    "ClosedHat",
+    "CowBell",
+    "Crash",
+    "Guiro",
+    "HighBongo",
+    "Kick",
+    "LowBongo",
+    "LowConga",
+    "Maracas",
+    "OpenHat",
+    "Rim",
+    "Snare",
+    "Tamborine"
+  ],
+  "formats": [
+    "ogg"
+  ],
+  "soundClass": "sound",
+  "sampleRate": 48000,
+  "channels": 1
+}
