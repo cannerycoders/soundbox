@@ -15,36 +15,9 @@ We loosely follow the introspection conventions laid out by
    value is the instrument subdirectory.
 3. within an instrument directory, the file, `instrument.json` 
    describes its contents including an enumeration of 
-   sample file names and available formats. Here's an
-   example:
-
-```json
-{
-  "baseUrl": "https://cannerycoders.github.io/soundbox/instruments/lick/samples/CasioSa10",
-  "samples": [
-    "Crash",
-    "HighConga",
-    "HighCowBell",
-    "HighTom",
-    "Kick",
-    "LowConga",
-    "LowCowBell",
-    "LowTom",
-    "MiddleTom",
-    "OpenHat",
-    "Ride",
-    "SnareA",
-    "SnareB"
-  ],
-  "formats": [
-    "ogg"
-  ],
-  "soundClass": "sound",
-  "sampleRate": 48000,
-  "channels": 1
-}
-```
-
+   sample file names and available formats. 
+   [Here](instruments/lick/samples/CasioSa10/instrument.json) 
+   is an example `instrument.json` file for "lick/CasioSa10.
 
 ## issues
 
