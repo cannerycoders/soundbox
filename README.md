@@ -9,7 +9,7 @@ from github.io.
 We follow the introspection conventions laid out by 
 [smpldsnds](https://github.com/smpldsnds/drum-machines): 
 
-1. instruments.json is an array of subdirectories, one
+1. [instruments.json](instruments.json) is an array of subdirectories, one
    for each "instrument".
 2. within an instrument directory, the file, `instrument.json` 
    describes its contents including an enumeration of 
