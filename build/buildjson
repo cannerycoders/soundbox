@@ -95,15 +95,28 @@ for (const e of entries)
   }
 }
 
+function getInstrumentName(dir)
+{
+  let fields = dir.replace(/\\/g, "/").split("/");
+  let kit = fields[1];
+  let inst = fields[fields.length-1];
+  return `${kit}/${inst}`;
+}
+
+const tocfile = "../toc.json";
 const instfile = "../instruments.json";
+let toc = {}; // key is kit/inst, value is path to dir
 let instruments = [];
 for(let dir of Object.keys(instdirs))
 {
-  instruments.push(dir.slice(3));
+  let dirref = dir.slice(3); // remove "../"
+  instruments.push(dirref);
+  let instnm = getInstrumentName(dirref);
+  toc[instnm] = dirref;
 }
-
 await writeFile(instfile, JSON.stringify(instruments, null, 2));
-console.log(`wrote ${instfile}`);
+await writeFile(tocfile, JSON.stringify(toc, null, 2));
+console.log(`wrote ${instfile} and ${tocfile}`);
 
 for(let [k,v] of Object.entries(instdirs))
 {

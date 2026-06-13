@@ -1,0 +1,18 @@
+{
+  "lick/YamahaRx5": "instruments/lick/samples/YamahaRx5",
+  "lick/RolandTr909": "instruments/lick/samples/RolandTr909",
+  "lick/RolandTr808": "instruments/lick/samples/RolandTr808",
+  "lick/RolandTr707": "instruments/lick/samples/RolandTr707",
+  "lick/RolandTr66": "instruments/lick/samples/RolandTr66",
+  "lick/RolandTr606": "instruments/lick/samples/RolandTr606",
+  "lick/RolandCr78": "instruments/lick/samples/RolandCr78",
+  "lick/OberheimDmx": "instruments/lick/samples/OberheimDmx",
+  "lick/LinnDrum": "instruments/lick/samples/LinnDrum",
+  "lick/LellUds": "instruments/lick/samples/LellUds",
+  "lick/EstradinPulsar": "instruments/lick/samples/EstradinPulsar",
+  "lick/EmuDrumulator": "instruments/lick/samples/EmuDrumulator",
+  "lick/ElectroHarmonixDrm15": "instruments/lick/samples/ElectroHarmonixDrm15",
+  "lick/CasioSa10": "instruments/lick/samples/CasioSa10",
+  "lick/BossDr110": "instruments/lick/samples/BossDr110",
+  "lick/AkaiMpc60": "instruments/lick/samples/AkaiMpc60"
+}
